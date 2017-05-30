@@ -6,8 +6,18 @@
     .controller('TrainingController', TrainingController);
 
   /** @ngInject */
-  function TrainingController(Training, $stateParams) {
+  function TrainingController(training, Reservation) {
     var vm = this;
-    vm.training = Training.query({id: $stateParams.id});
+
+    vm.training = training;
+    vm.trainee = {
+      training_id: vm.training._id
+    };
+
+    vm.makeReservation = makeReservation;
+
+    function makeReservation() {
+      Reservation.save(vm.trainee);
+    }
   }
 })();

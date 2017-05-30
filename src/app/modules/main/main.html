@@ -16,7 +16,8 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="list-group">
-        <a ui-sref="app.main.training({id: training._id})" class="list-group-item" ng-repeat="training in vm.trainings |filter: filter.title| orderBy:sort">
+        <a ui-sref="app.main.training({id: training._id})" class="list-group-item"
+        ng-repeat="training in vm.trainings | filter: filter.title | orderBy:sort">
           <span class="label label-info label-pill pull-xs-right"></span>
           <h4 class="list-group-item-heading">{{training.title}}</h4>
           <h5>{{training.date | date:'yyyy-MM-dd HH:mm:ss'}}</h5>

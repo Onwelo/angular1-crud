@@ -16,12 +16,12 @@
           },
           'content@': {
             templateUrl: 'app/modules/main/main.html',
-            controller: 'MainController as vm',
-            resolve: {
-              trainings: function (Trainings) {
-                return Trainings.query();
-              }
-            }
+            controller: 'MainController as vm'
+          }
+        },
+        resolve: {
+          trainings: function (Trainings) {
+            return Trainings.query().$promise;
           }
         }
       })
@@ -33,12 +33,14 @@
           },
           'content@': {
             templateUrl: 'app/modules/main/training.html',
-            controller: 'TrainingController as vm',
-            resolve: {
-              training: function (Training, $stateParams) {
-                return Training.query({id: $stateParams.id});
-              }
-            }
+            controller: 'TrainingController as vm'
+          }
+        },
+        resolve: {
+          training: function (Training, $stateParams) {
+            return Training.query({
+              id: $stateParams.id
+            }).$promise;
           }
         }
       });

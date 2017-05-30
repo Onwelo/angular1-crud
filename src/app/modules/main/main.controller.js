@@ -6,8 +6,9 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(Trainings) {
+  function MainController(trainings) {
     var vm = this;
-    vm.trainings = Trainings.query();
+
+    vm.trainings = trainings;
   }
 })();
